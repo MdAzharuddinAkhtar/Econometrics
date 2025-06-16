@@ -1,1 +1,1 @@
-# Econometrics
+Econometrics
