@@ -1,1 +1,73 @@
+readme_text = """
+# 📘 Heteroskedasticity Detection and Correction in Linear Regression
 
+## 📂 Repository: `heteroskedasticity-regression-analysis`
+
+This repository provides a comprehensive walkthrough of detecting, visualizing, and correcting for **heteroskedasticity** in linear regression models using **Python (Jupyter Notebook)**. The examples are based on `.dta` datasets (`food.dta`, `coke.dta`, etc.) and mirror best practices from econometrics using tools like **OLS, White test, Breusch-Pagan test, Goldfeld-Quandt test, robust standard errors, and Feasible Generalized Least Squares (FGLS)**.
+
+---
+
+## 🧪 Objectives
+
+- Graphical identification of heteroskedasticity using **residual plots** and **LOWESS**.
+- Statistical tests of heteroskedasticity:
+  - **White test**
+  - **Breusch-Pagan test**
+  - **Goldfeld-Quandt test**
+- Estimation techniques:
+  - **OLS with robust standard errors**
+  - **Feasible Generalized Least Squares (FGLS)**
+  - **Weighted Least Squares (WLS)**
+
+---
+
+## 📁 Dataset Overview
+
+1. **`food.dta`**
+   - Dependent variable: `food_exp`
+   - Independent variable: `income`
+   - Use case: heteroskedasticity in household consumption models
+
+2. **`coke.dta`**
+   - Dependent variable: `coke`
+   - Independent variables: `pratio`, `disp_coke`, `disp_pepsi`
+   - Use case: demand estimation and marketing influence under heteroskedasticity
+
+---
+
+## 🔍 Key Analysis Performed
+
+### 📊 1. **Graphical Detection of Heteroskedasticity**
+- Plotted residuals vs. predicted values and vs. income.
+- Used `lowess` smoothing to detect nonlinear variance trends.
+  
+### 🧾 2. **Formal Statistical Tests**
+- **White Test**: General test for heteroskedasticity using `statsmodels.stats.diagnostic.het_white`.
+- **Breusch-Pagan Test**: LM-based test to examine linear forms of heteroskedasticity.
+- **Goldfeld-Quandt Test**: Structural break in variance across sorted observations.
+
+### 📈 3. **Estimation with Robustness**
+- Estimated regression with **White-corrected standard errors** (`cov_type='HC0'`).
+- Implemented **Feasible GLS**:
+  - Step 1: OLS
+  - Step 2: Estimate variance model from residuals
+  - Step 3: Weighted Least Squares with estimated variance
+  
+---
+
+## 🛠️ Python Libraries Used
+
+- `pandas`
+- `numpy`
+- `matplotlib`, `seaborn`
+- `statsmodels`
+- `scipy`
+
+---
+
+## 📌 How to Run
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/your-username/heteroskedasticity-regression-analysis.git
+   cd heteroskedasticity-regression-analysis
